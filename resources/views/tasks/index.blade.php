@@ -9,7 +9,7 @@
             <thead>
                 <tr>
                     <th>id</th>
-                    <th>メッセージ</th>
+                    <th>content</th>
                 </tr>
             </thead>
             <tbody>
