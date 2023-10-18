@@ -23,4 +23,6 @@
         </table>
     @endif
 
+    <a class="btn btn-primary" href="{{ route('tasks.create') }}">New Task</a>
+
 @endsection
