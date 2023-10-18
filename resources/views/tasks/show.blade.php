@@ -14,4 +14,6 @@
         </tr>
     </table>
 
+    <a class="btn btn-light" href="{{ route('tasks.edit', ['id' => $task->id]) }}">Edit</a>
+
 @endsection
