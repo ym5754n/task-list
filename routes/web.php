@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\IndexTasksController;
 use App\Http\Controllers\CreateTasksController;
 use App\Http\Controllers\StoreTasksController;
+use App\Http\Controllers\ShowTasksController;
 
 
 /*
@@ -22,3 +23,4 @@ Route::get('/', IndexTasksController::class);
 Route::get('tasks', IndexTasksController::class)->name('tasks.index');
 Route::get('tasks/create', CreateTasksController::class)->name('tasks.create');
 Route::post('tasks', StoreTasksController::class)->name('tasks.store');
+Route::get('tasks/{id}', ShowTasksController::class)->name('tasks.show');

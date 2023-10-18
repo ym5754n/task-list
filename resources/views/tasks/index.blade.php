@@ -15,7 +15,7 @@
             <tbody>
                 @foreach ($tasks as $task)
                 <tr>
-                    <td>{{ $task->id }}</td>
+                    <td><a href="{{ route('tasks.show', ['id' => $task->id]) }}">{{ $task->id }}</a></td>
                     <td>{{ $task->content }}</td>
                 </tr>
                 @endforeach
