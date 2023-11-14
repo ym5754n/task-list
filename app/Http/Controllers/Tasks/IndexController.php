@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Tasks;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Task;
 
-class IndexTasksController extends Controller
+class IndexController extends Controller
 {
     /**
      * Handle the incoming request.

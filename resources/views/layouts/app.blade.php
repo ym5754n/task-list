@@ -27,8 +27,8 @@
                                 </form>
                             </li>
                         @else
-                            <li class="nav-item"><a href="{{ route('auth.register.showRegister') }}" class="nav-link">Register</a></li>
-                            <li class="nav-item"><a href="{{ route('auth.login.showLogin') }}" class="nav-link">Login</a></li>
+                            <li class="nav-item"><a href="{{ route('auth.register.index') }}" class="nav-link">Register</a></li>
+                            <li class="nav-item"><a href="{{ route('auth.login.index') }}" class="nav-link">Login</a></li>
                         @endauth
                     </ul>
                 </div>

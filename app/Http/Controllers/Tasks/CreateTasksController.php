@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Tasks;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Models\Task;
 
-class StoreTasksController extends Controller
+class CreateTasksController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -15,9 +16,8 @@ class StoreTasksController extends Controller
     {
         $task = new Task;
 
-        $task->content = $request->content;
-        $task->save();
-
-        return redirect('/');
+        return view('tasks.create', [
+            'task' => $task,
+        ]);
     }
 }
