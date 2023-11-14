@@ -13,7 +13,11 @@ class IndexTasksController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $tasks = Task::all();
+        $tasks = [];
+
+        if (\Auth::check()) {
+            $tasks = Task::all();
+        }
 
         return view('tasks.index', [
             'tasks' => $tasks,

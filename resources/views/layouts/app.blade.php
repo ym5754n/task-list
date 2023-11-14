@@ -19,12 +19,17 @@
                 <div class="collapse navbar-collapse" id="nav-bar">
                     <ul class="navbar-nav mr-auto"></ul>
                     <ul class="navbar-nav">
+                        @auth
+                        @else
+                            <li class="nav-item"><a href="{{ route('auth.register.showRegister') }}" class="nav-link">Register</a></li>
+                        @endauth
                     </ul>
                 </div>
             </nav>
         </header>
         
         <div class="container">
+            @include('commons.errorMessages')
             @yield('content')
         </div>
         
