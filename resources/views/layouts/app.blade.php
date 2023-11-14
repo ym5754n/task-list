@@ -20,8 +20,15 @@
                     <ul class="navbar-nav mr-auto"></ul>
                     <ul class="navbar-nav">
                         @auth
+                            <li class="nav-item">
+                                <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="nav-link">Logout</a>
+                                <form id="logout-form" action="{{ route('auth.logout.logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </li>
                         @else
                             <li class="nav-item"><a href="{{ route('auth.register.showRegister') }}" class="nav-link">Register</a></li>
+                            <li class="nav-item"><a href="{{ route('auth.login.showLogin') }}" class="nav-link">Login</a></li>
                         @endauth
                     </ul>
                 </div>

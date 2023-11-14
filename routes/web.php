@@ -12,6 +12,9 @@ use App\Http\Controllers\DestroyTasksController;
 
 use App\Http\Controllers\Auth\Register\ShowRegisterController;
 use App\Http\Controllers\Auth\Register\RegisterController;
+use App\Http\Controllers\Auth\Login\ShowLoginController;
+use App\Http\Controllers\Auth\Login\LoginController;
+use App\Http\Controllers\Auth\Logout\LogoutController;
 
 
 /*
@@ -28,6 +31,8 @@ use App\Http\Controllers\Auth\Register\RegisterController;
 Route::get('/', IndexTasksController::class);
 
 Route::middleware('auth')->group(function() {
+    Route::post('logout', LogoutController::class)->name('auth.logout.logout');
+
     Route::get('tasks', IndexTasksController::class)->name('tasks.index');
     Route::get('tasks/create', CreateTasksController::class)->name('tasks.create');
     Route::post('tasks', StoreTasksController::class)->name('tasks.store');
@@ -37,5 +42,9 @@ Route::middleware('auth')->group(function() {
     Route::delete('tasks/{id}', DestroyTasksController::class)->name('tasks.destroy');
 });
 
-Route::get('register', ShowRegisterController::class)->name('auth.register.showRegister');
-Route::post('register', RegisterController::class)->name('auth.register.register');
+Route::middleware('guest')->group(function() {
+    Route::get('register', ShowRegisterController::class)->name('auth.register.showRegister');
+    Route::post('register', RegisterController::class)->name('auth.register.register');
+    Route::get('login', ShowLoginController::class)->name('auth.login.showLogin');
+    Route::post('login', LoginController::class)->name('auth.login.login');
+});
